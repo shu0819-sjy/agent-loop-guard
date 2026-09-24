@@ -1,0 +1,14 @@
+node_modules/
+dist/
+_upstream/
+.npm-cache/
+
+*.tgz
+*.log
+.DS_Store
+coverage/
+.turbo/
+.vite/
+*.tsbuildinfo
+.idea/
+.vscode/
