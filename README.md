@@ -1,5 +1,11 @@
 # agent-loop-guard
 
+[![CI](https://github.com/shu0819-sjy/agent-loop-guard/actions/workflows/ci.yml/badge.svg)](https://github.com/shu0819-sjy/agent-loop-guard/actions/workflows/ci.yml)
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE)
+[![Node.js](https://img.shields.io/badge/node-%3E%3D18-brightgreen.svg)](https://nodejs.org/)
+[![npm test](https://img.shields.io/badge/npm-test-passing-brightgreen.svg)](./package.json)
+[![npm version](https://img.shields.io/badge/version-0.1.0-blue.svg)](./package.json)
+
 **Hard-trip guards against repetition loops and tool-call thrash in LLM agents.**
 
 `agent-loop-guard` is a zero-runtime-dependency TypeScript library that stops two
