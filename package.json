@@ -27,6 +27,7 @@
     "test": "npm run build && node tests/node/run-all.mjs",
     "test:vitest": "vitest run",
     "pack:dry": "npm pack --dry-run",
+    "test:pack": "node tests/node/package-smoke.mjs",
     "prepack": "npm run build"
   },
   "keywords": [

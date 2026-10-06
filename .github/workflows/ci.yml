@@ -11,11 +11,12 @@ concurrency:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
     timeout-minutes: 15
     strategy:
       fail-fast: false
       matrix:
+        os: [windows-latest, macos-latest, ubuntu-latest]
         node-version: [18, 20, 22]
     steps:
       - uses: actions/checkout@v4
@@ -36,3 +37,5 @@ jobs:
         run: npm run build
       - name: Pack dry-run
         run: npm run pack:dry
+      - name: Fresh package install and import smoke
+        run: npm run test:pack
