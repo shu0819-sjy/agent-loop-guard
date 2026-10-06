@@ -39,7 +39,7 @@ Agent 迟早会遇到的两类失效模式：
 npm install agent-loop-guard
 ```
 
-要求 **Node >= 18**。本包仅发布 ESM（`"type": "module"`），附带 TypeScript
+要求 **Node >= 18**（CI 会在 Windows、macOS、Ubuntu 上运行 Node 18/20/22）。本包仅发布 ESM（`"type": "module"`），附带 TypeScript
 声明、source map，且没有任何运行时依赖。
 
 ```js
@@ -284,10 +284,12 @@ npm install
 npm run typecheck   # tsc --noEmit
 npm run build       # tsc -> dist/
 npm test            # 构建 + node:test 套件（vitest：npm run test:vitest）
+npm run test:pack   # 打包后在临时目录全新安装并导入
 node examples/openai-loop.mjs   # 无任何 API key 的离线演示
 ```
 
-CI 在 Node 18 / 20 / 22 上运行类型检查、测试与构建（见
+CI 会在 Windows、macOS、Ubuntu 的 Node 18 / 20 / 22 矩阵上运行类型检查、测试与构建，
+并执行 `npm pack` 后的临时目录全新安装和导入 smoke 测试；该测试不需要密钥，也不会调用网络 API（见
 `.github/workflows/`）。贡献指南见 [`CONTRIBUTING.md`](CONTRIBUTING.md)。
 
 ## 文档

@@ -49,7 +49,7 @@ means (see [Optional: resume policy](#optional-resume-policy)).
 npm install agent-loop-guard
 ```
 
-Requires **Node >= 18**. The package ships ESM only (`"type": "module"`), with
+Requires **Node >= 18** (Node 18, 20 and 22 are exercised in CI). The package ships ESM only (`"type": "module"`), with
 TypeScript declarations, source maps, and no runtime dependencies.
 
 ```js
@@ -305,11 +305,14 @@ npm install
 npm run typecheck   # tsc --noEmit
 npm run build       # tsc -> dist/
 npm test            # build + node:test suite (vitest: npm run test:vitest)
+npm run test:pack    # pack, fresh-install into a temp directory, and import
 node examples/openai-loop.mjs   # offline demo without any API key
 ```
 
-CI runs typecheck, tests, and the build on Node 18 / 20 / 22 (see
-`.github/workflows/`). See [`CONTRIBUTING.md`](CONTRIBUTING.md) for guidelines.
+The same checks run on Windows, macOS and Ubuntu with Node 18 / 20 / 22. The
+package smoke installs the generated archive into a temporary directory and
+imports the published ESM entry point; it does not use credentials or network
+APIs. See [`CONTRIBUTING.md`](CONTRIBUTING.md) for guidelines.
 
 ## Documentation
 
